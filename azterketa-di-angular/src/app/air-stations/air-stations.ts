@@ -1,10 +1,10 @@
 import { Component, inject, signal } from '@angular/core';
 import { Opendata } from '../opendata';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-air-stations',
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './air-stations.html',
   styleUrl: './air-stations.css',
 })
@@ -20,7 +20,7 @@ export class AirStations {
       next: (response) => {
         const items = (response as any)?.features || [];
         this.data.set(items);
-        console.log(this.data());
+        // console.log(this.data());
         this.isLoading.set(false);
       },
       error: (error) => {

@@ -9,18 +9,14 @@
                 <thead class="bg-gray-100 border-b-2 border-gray-200">
                     <tr>
                         <th class="px-6 py-3 text-left font-semibold text-gray-700">Izena</th>
-                        <th class="px-6 py-3 text-left font-semibold text-gray-700">Helbidea</th>
                         <th class="px-6 py-3 text-left font-semibold text-gray-700">Herria</th>
-                        <th class="px-6 py-3 text-left font-semibold text-gray-700">Probintzia</th>
                     </tr>
                 </thead>
                 <tbody class="divide-y divide-gray-200">
                     @for (station of data(); track station.properties.id; let i = $index) {
-                        <tr [class.bg-gray-50]="i % 2 === 1" class="hover:bg-gray-100 transition" href="/stations/"{{ station.properties.id }}>
+                        <tr [class.bg-gray-50]="i % 2 === 1" class="hover:bg-gray-100 transition" routerLink="/stations/{{ station.properties.id }}">
                             <td class="px-6 py-4 text-gray-900">{{ station.properties.name }}</td>
-                            <td class="px-6 py-4 text-gray-700">{{ station.properties.address }}</td>
                             <td class="px-6 py-4 text-gray-700">{{ station.properties.location.municipality }}</td>
-                            <td class="px-6 py-4 text-gray-700">{{ station.properties.location.county }}</td>
                         </tr>
                     }
                 </tbody>
