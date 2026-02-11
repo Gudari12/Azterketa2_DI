@@ -16,6 +16,7 @@ export class Station {
 
   constructor() {
     this.isLoading.set(true);
+      //hardcoded
     this.opendata.station_info(85).subscribe({
       next: (response) => {
         const items = (response as any)?.features || [];
